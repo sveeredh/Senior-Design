@@ -1,27 +1,31 @@
-
+/* =============================================
+   PITWALL — Race Command Center
+   Design: Purdue Black & Gold telemetry aesthetic
+   Fonts: Barlow Condensed (display) + Share Tech Mono (data)
+   ============================================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg-base:      #0a0b0d;
-  --bg-card:      #0f1114;
-  --bg-card2:     #141619;
-  --border:       #1f2227;
-  --border-hi:    #2a2f38;
-  --accent:       #e8001d;
-  --accent2:      #ff4d00;
+  --bg-base:      #080807;
+  --bg-card:      #0e0d0b;
+  --bg-card2:     #131209;
+  --border:       #252310;
+  --border-hi:    #332f14;
+  --accent:       #CFB991;   /* Purdue Gold */
+  --accent2:      #e8d080;   /* lighter gold highlight */
   --green:        #00e676;
-  --purple:       #c77dff;
-  --yellow:       #ffd600;
-  --amber:        #f59e0b;
+  --purple:       #CFB991;   /* reuse gold for "best lap" purple role */
+  --yellow:       #CFB991;
+  --amber:        #e8c040;
   --red:          #ef4444;
-  --text-pri:     #eaeef5;
-  --text-sec:     #6b7585;
-  --text-mono:    #a8c0d6;
-  --p1-color:     #e8001d;
-  --p2-color:     #ff7b00;
-  --p3-color:     #ffd600;
-  --glow-red:     0 0 12px rgba(232,0,29,0.45);
+  --text-pri:     #f0ead8;
+  --text-sec:     #6b6545;
+  --text-mono:    #c8b87a;
+  --p1-color:     #CFB991;
+  --p2-color:     #a8945a;
+  --p3-color:     #7a6b38;
+  --glow-red:     0 0 14px rgba(207,185,145,0.55);
   --glow-green:   0 0 8px rgba(0,230,118,0.35);
 }
 
@@ -64,7 +68,7 @@ html, body {
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: gold;
+  color: var(--text-sec);
   text-transform: uppercase;
 }
 
@@ -112,14 +116,14 @@ html, body {
   letter-spacing: 0.12em;
 }
 .status-pill.live {
-  background: rgba(232,0,29,0.15);
+  background: rgba(207,185,145,0.12);
   border: 1px solid var(--accent);
   color: var(--accent);
   animation: pulse-border 1.5s ease-in-out infinite;
 }
 @keyframes pulse-border {
-  0%,100% { box-shadow: 0 0 0 0 rgba(232,0,29,0.4); }
-  50%      { box-shadow: 0 0 0 4px rgba(232,0,29,0); }
+  0%,100% { box-shadow: 0 0 0 0 rgba(207,185,145,0.5); }
+  50%      { box-shadow: 0 0 0 4px rgba(207,185,145,0); }
 }
 
 .clock {
@@ -198,7 +202,7 @@ html, body {
   white-space: nowrap;
 }
 .leaderboard tbody tr:hover { background: rgba(255,255,255,0.02); }
-.highlight-row { background: rgba(232,0,29,0.06) !important; }
+.highlight-row { background: rgba(207,185,145,0.07) !important; }
 .highlight-row td { color: #fff; }
 
 .driver-name {
@@ -221,8 +225,8 @@ html, body {
   font-size: 13px;
   color: #fff;
 }
-.pos.p1 { background: var(--p1-color); box-shadow: var(--glow-red); }
-.pos.p2 { background: var(--p2-color); }
+.pos.p1 { background: var(--p1-color); color: #000; box-shadow: var(--glow-red); }
+.pos.p2 { background: var(--p2-color); color: #000; }
 .pos.p3 { background: var(--p3-color); color: #000; }
 
 .leader-tag {
@@ -436,7 +440,7 @@ html, body {
 }
 .rpm-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--green), #ffd600, var(--accent));
+  background: linear-gradient(90deg, #8a7340, var(--accent2), var(--accent));
   border-radius: 1px;
   transition: width 0.4s;
 }
@@ -446,7 +450,7 @@ html, body {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900;
   font-size: 22px;
-  color: #fff;
+  color: #000;
   background: var(--accent);
   padding: 2px 12px;
   border-radius: 2px;
@@ -566,7 +570,7 @@ html, body {
   font-weight: 700;
   font-size: 10px;
   letter-spacing: 0.18em;
-  color: #fff;
+  color: #000;
   background: var(--accent);
   height: 100%;
   display: flex;
