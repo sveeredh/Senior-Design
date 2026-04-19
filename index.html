@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PitWall — Race Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP NAV BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo">PIT<span class="logo-accent">WALL</span></span>
+      <span class="race-name">MONACO GRAND PRIX — RACE DAY</span>
+    </div>
+    <div class="topbar-center">
+      <div class="lap-counter">
+        <span class="lap-label">LAP</span>
+        <span class="lap-num">42</span>
+        <span class="lap-total">/ 78</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="status-pill live">● LIVE</div>
+      <div class="clock" id="clock">14:32:07</div>
+    </div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <main class="grid">
+
+    <!-- LEFT COLUMN: Race Feed + Leaderboard -->
+    <aside class="col-left">
+
+      <section class="card leaderboard-card">
+        <div class="card-header">
+          <span class="card-title">STANDINGS</span>
+          <span class="card-sub">LAP 42</span>
+        </div>
+        <table class="leaderboard">
+          <thead>
+            <tr><th>POS</th><th>DRIVER</th><th>CAR</th><th>GAP</th><th>LAST LAP</th></tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><span class="pos p1">1</span></td>
+              <td><span class="driver-name">M. VERSTAPPEN</span></td>
+              <td>RedBull RB20</td>
+              <td class="leader-tag">LEADER</td>
+              <td class="best-lap">1:12.843</td>
+            </tr>
+            <tr>
+              <td><span class="pos p2">2</span></td>
+              <td><span class="driver-name">C. LECLERC</span></td>
+              <td>Ferrari SF-24</td>
+              <td>+2.341s</td>
+              <td>1:13.109</td>
+            </tr>
+            <tr>
+              <td><span class="pos p3">3</span></td>
+              <td><span class="driver-name">L. HAMILTON</span></td>
+              <td>Mercedes W15</td>
+              <td>+5.782s</td>
+              <td>1:13.440</td>
+            </tr>
+            <tr>
+              <td><span class="pos">4</span></td>
+              <td><span class="driver-name">L. NORRIS</span></td>
+              <td>McLaren MCL38</td>
+              <td>+8.115s</td>
+              <td>1:13.512</td>
+            </tr>
+            <tr>
+              <td><span class="pos">5</span></td>
+              <td><span class="driver-name">C. SAINZ</span></td>
+              <td>Ferrari SF-24</td>
+              <td>+11.903s</td>
+              <td>1:13.720</td>
+            </tr>
+            <tr>
+              <td><span class="pos">6</span></td>
+              <td><span class="driver-name">F. ALONSO</span></td>
+              <td>Aston Martin</td>
+              <td>+14.556s</td>
+              <td>1:13.981</td>
+            </tr>
+            <tr>
+              <td><span class="pos">7</span></td>
+              <td><span class="driver-name">G. RUSSELL</span></td>
+              <td>Mercedes W15</td>
+              <td>+17.230s</td>
+              <td>1:14.102</td>
+            </tr>
+            <tr>
+              <td><span class="pos">8</span></td>
+              <td><span class="driver-name">O. PIASTRI</span></td>
+              <td>McLaren MCL38</td>
+              <td>+19.841s</td>
+              <td>1:14.345</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card radio-card">
+        <div class="card-header">
+          <span class="card-title">TEAM RADIO LOG</span>
+          <span class="card-sub blink">● REC</span>
+        </div>
+        <div class="radio-feed">
+          <div class="radio-entry">
+            <span class="radio-time">42:18</span>
+            <span class="radio-driver">ENGINEER →</span>
+            <span class="radio-msg">Box this lap. Soft compound ready.</span>
+          </div>
+          <div class="radio-entry">
+            <span class="radio-time">41:55</span>
+            <span class="radio-driver">VERSTAPPEN →</span>
+            <span class="radio-msg">Understood. Gap still holding?</span>
+          </div>
+          <div class="radio-entry">
+            <span class="radio-time">41:30</span>
+            <span class="radio-driver">ENGINEER →</span>
+            <span class="radio-msg">Leclerc pitted. You have +8 seconds.</span>
+          </div>
+          <div class="radio-entry">
+            <span class="radio-time">40:12</span>
+            <span class="radio-driver">VERSTAPPEN →</span>
+            <span class="radio-msg">Rear left feels a bit loose in T6.</span>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- CENTER COLUMN: Video + Split Times -->
+    <section class="col-center">
+
+      <div class="card video-card">
+        <div class="video-label">ONBOARD — CAR #1 VERSTAPPEN</div>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0&modestbranding=1"
+            title="Race Feed"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay-stats">
+          <div class="ov-stat">
+            <span class="ov-label">SPEED</span>
+            <span class="ov-val">187 <span class="ov-unit">mph</span></span>
+          </div>
+          <div class="ov-stat">
+            <span class="ov-label">GEAR</span>
+            <span class="ov-val">6</span>
+          </div>
+          <div class="ov-stat">
+            <span class="ov-label">RPM</span>
+            <span class="ov-val">11,240</span>
+          </div>
+          <div class="ov-stat">
+            <span class="ov-label">THROTTLE</span>
+            <span class="ov-val">78<span class="ov-unit">%</span></span>
+          </div>
+          <div class="ov-stat">
+            <span class="ov-label">BRAKE</span>
+            <span class="ov-val">0<span class="ov-unit">%</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lap Split Times -->
+      <div class="card splits-card">
+        <div class="card-header">
+          <span class="card-title">LAP SPLIT TIMES — CAR #1</span>
+          <span class="best-badge">FASTEST: 1:12.843 (Lap 38)</span>
+        </div>
+        <div class="splits-grid">
+          <div class="split-row header-row">
+            <span>LAP</span><span>S1</span><span>S2</span><span>S3</span><span>TOTAL</span><span>Δ BEST</span>
+          </div>
+          <div class="split-row purple-row">
+            <span>42</span><span class="s1 purple">23.441</span><span class="s2">28.102</span><span class="s3 green">21.300</span><span class="total">1:12.843</span><span class="delta green">–0.000</span>
+          </div>
+          <div class="split-row">
+            <span>41</span><span class="s1">23.801</span><span class="s2">28.210</span><span class="s3">21.640</span><span class="total">1:13.651</span><span class="delta">+0.808</span>
+          </div>
+          <div class="split-row">
+            <span>40</span><span class="s1 green">23.390</span><span class="s2">28.450</span><span class="s3">21.801</span><span class="total">1:13.641</span><span class="delta">+0.798</span>
+          </div>
+          <div class="split-row">
+            <span>39</span><span class="s1">23.910</span><span class="s2 purple">27.980</span><span class="s3">21.900</span><span class="total">1:13.790</span><span class="delta">+0.947</span>
+          </div>
+          <div class="split-row">
+            <span>38</span><span class="s1">23.701</span><span class="s2">28.101</span><span class="s3 purple">21.041</span><span class="total">1:12.843</span><span class="delta green">–0.000</span>
+          </div>
+        </div>
+        <div class="splits-legend">
+          <span class="leg purple">■ Personal Best Sector</span>
+          <span class="leg green">■ Overall Best</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: Sensor Data -->
+    <aside class="col-right">
+
+      <!-- Speed + G-Force -->
+      <section class="card sensor-hero-card">
+        <div class="card-header">
+          <span class="card-title">LIVE TELEMETRY — CAR #1</span>
+        </div>
+        <div class="speed-display">
+          <span class="speed-num">187</span>
+          <span class="speed-unit">MPH</span>
+        </div>
+        <div class="gforce-row">
+          <div class="gf-item">
+            <span class="gf-label">LATERAL G</span>
+            <div class="gbar-track"><div class="gbar gbar-lat" style="width:62%"></div></div>
+            <span class="gf-val">2.4 G</span>
+          </div>
+          <div class="gf-item">
+            <span class="gf-label">LONG G</span>
+            <div class="gbar-track"><div class="gbar gbar-long" style="width:35%"></div></div>
+            <span class="gf-val">1.3 G</span>
+          </div>
+        </div>
+        <div class="rpm-bar-wrap">
+          <span class="rpm-label">RPM: 11,240 / 15,000</span>
+          <div class="rpm-track">
+            <div class="rpm-fill" style="width:74.9%"></div>
+          </div>
+          <div class="gear-badge">GEAR 6</div>
+        </div>
+      </section>
+
+      <!-- Tire Pressures -->
+      <section class="card tires-card">
+        <div class="card-header">
+          <span class="card-title">TIRE STATUS</span>
+          <span class="card-sub">SOFT — 12 LAPS</span>
+        </div>
+        <div class="tire-diagram">
+          <div class="tire-row">
+            <div class="tire-box fl">
+              <span class="tire-pos">FL</span>
+              <span class="tire-psi">24.1 <small>PSI</small></span>
+              <span class="tire-temp">95°C</span>
+              <div class="tire-wear-bar"><div style="width:68%"></div></div>
+              <span class="tire-wear-pct">68%</span>
+            </div>
+            <div class="tire-box fr">
+              <span class="tire-pos">FR</span>
+              <span class="tire-psi">24.4 <small>PSI</small></span>
+              <span class="tire-temp">98°C</span>
+              <div class="tire-wear-bar"><div style="width:71%; background: #f59e0b"></div></div>
+              <span class="tire-wear-pct warn">71%</span>
+            </div>
+          </div>
+          <div class="car-center-icon">🏎</div>
+          <div class="tire-row">
+            <div class="tire-box rl">
+              <span class="tire-pos">RL</span>
+              <span class="tire-psi">26.2 <small>PSI</small></span>
+              <span class="tire-temp">101°C</span>
+              <div class="tire-wear-bar"><div style="width:80%; background:#ef4444"></div></div>
+              <span class="tire-wear-pct crit">80%</span>
+            </div>
+            <div class="tire-box rr">
+              <span class="tire-pos">RR</span>
+              <span class="tire-psi">26.5 <small>PSI</small></span>
+              <span class="tire-temp">103°C</span>
+              <div class="tire-wear-bar"><div style="width:83%; background:#ef4444"></div></div>
+              <span class="tire-wear-pct crit">83%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Engine + Systems -->
+      <section class="card systems-card">
+        <div class="card-header">
+          <span class="card-title">ENGINE & SYSTEMS</span>
+        </div>
+        <div class="systems-grid">
+          <div class="sys-item">
+            <span class="sys-label">WATER TEMP</span>
+            <span class="sys-val warn">97°C</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">OIL TEMP</span>
+            <span class="sys-val">112°C</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">OIL PRESSURE</span>
+            <span class="sys-val">4.8 bar</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">FUEL REMAINING</span>
+            <span class="sys-val">38.4 kg</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">FUEL USE/LAP</span>
+            <span class="sys-val">1.82 kg</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">ERS DEPLOYED</span>
+            <span class="sys-val ok">78%</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">ERS HARVESTED</span>
+            <span class="sys-val">62%</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">BRAKE BIAS</span>
+            <span class="sys-val">56.2% F</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">DRS</span>
+            <span class="sys-val ok">ACTIVE</span>
+          </div>
+          <div class="sys-item">
+            <span class="sys-label">BATTERY V</span>
+            <span class="sys-val">326 V</span>
+          </div>
+        </div>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <!-- BOTTOM TICKER -->
+  <footer class="ticker-bar">
+    <div class="ticker-label">ALERTS</div>
+    <div class="ticker-wrap">
+      <div class="ticker-content">
+        🟡 YELLOW FLAG — Turn 8 — debris on track &nbsp;&nbsp;|&nbsp;&nbsp;
+        ⛽ SAINZ pitting from P5 — expected out P6 &nbsp;&nbsp;|&nbsp;&nbsp;
+        🔴 HAMILTON tyre wear critical — rear left 89% &nbsp;&nbsp;|&nbsp;&nbsp;
+        📡 Weather update: Rain probability 12% — next 30 min &nbsp;&nbsp;|&nbsp;&nbsp;
+        🏁 VERSTAPPEN fastest sector 3 — 21.300s &nbsp;&nbsp;|&nbsp;&nbsp;
+        🔋 NORRIS ERS harvesting mode active &nbsp;&nbsp;|&nbsp;&nbsp;
+        🟡 YELLOW FLAG — Turn 8 — debris on track &nbsp;&nbsp;|&nbsp;&nbsp;
+        ⛽ SAINZ pitting from P5 — expected out P6 &nbsp;&nbsp;|&nbsp;&nbsp;
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
