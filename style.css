@@ -1,5 +1,5 @@
 /* =============================================
-   PITWALL — Race Command Center
+   PURDUE — Race Command Center
    Design: Purdue Black & Gold telemetry aesthetic
    Fonts: Barlow Condensed (display) + Share Tech Mono (data)
    ============================================= */
@@ -52,14 +52,13 @@ html, body {
   z-index: 100;
 }
 
-.logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 0.12em;
-  color: #fff;
-  text-transform: uppercase;
+.purdue-logo {
+  height: 34px;
+  width: auto;
+  filter: brightness(0) invert(1);  /* renders white on dark bg */
+  display: block;
 }
+
 .logo-accent { color: var(--accent); }
 
 .race-name {
@@ -116,14 +115,14 @@ html, body {
   letter-spacing: 0.12em;
 }
 .status-pill.live {
-  background: rgba(207,185,145,0.12);
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  background: rgba(220, 0, 0, 0.18);
+  border: 1px solid #e8001d;
+  color: #e8001d;
   animation: pulse-border 1.5s ease-in-out infinite;
 }
 @keyframes pulse-border {
-  0%,100% { box-shadow: 0 0 0 0 rgba(207,185,145,0.5); }
-  50%      { box-shadow: 0 0 0 4px rgba(207,185,145,0); }
+  0%,100% { box-shadow: 0 0 0 0 rgba(232,0,29,0.5); }
+  50%      { box-shadow: 0 0 0 4px rgba(232,0,29,0); }
 }
 
 .clock {
@@ -517,7 +516,7 @@ html, body {
   color: var(--text-sec);
 }
 .tire-wear-pct.warn { color: var(--amber); }
-.tire-wear-pct.crit { color: var(--red); }
+.tire-wear-pct.crit { color: #e8c040; }
 
 /* ── SYSTEMS GRID ─────────────────────────── */
 .systems-card { }
